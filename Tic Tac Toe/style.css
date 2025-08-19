@@ -1,0 +1,14 @@
+.row{
+    display: flex;
+}
+
+.col{
+    width: 65px;
+    height: 65px;
+    border: 2px solid black;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
