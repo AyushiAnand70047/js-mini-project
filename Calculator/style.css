@@ -1,4 +1,10 @@
-.calculator-container{
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 4.47vw;
+}
+
+.calculator-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -7,40 +13,41 @@
     color: white;
 }
 
-.calculator{
-    height: 350px;
-    width: 230px;
+.calculator {
+    height: 60vh;
+    width: 59.97vw;
     background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 0.69vw;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 2.56vw;
 }
 
 #number-input, #result {
-    height: 50px;
+    height: 9.56vh;
     color: white;
     background-color: black;
     border: none;
     text-align: right;
+    width: 80%;
 }
 
 .cal-buttons {
-    height: 50px;
-    width: 50px;
+    height: 7vh;
+    width: 11vw;
     text-align: center;
     cursor: pointer;
     border-radius: 50%;
-    margin: 3px;
+    margin: 1.21vw;
     background-color: rgb(84, 73, 87);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.cal-buttons:hover{
+.cal-buttons:hover {
     background-color: rgb(69, 63, 71);
 }
 
@@ -50,4 +57,15 @@
 
 #equal, #clear {
     background-color: rgb(74, 109, 162);
+}
+
+@media only screen and (min-width: 1024px) {
+    .calculator {
+        height: 85vh;
+    }
+    .cal-buttons {
+        height: 10vh;
+        width: 10vw;
+        border-radius: 15%;
+    }
 }
