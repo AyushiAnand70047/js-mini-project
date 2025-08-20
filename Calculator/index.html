@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
 </head>
 <body>
-    <h1>Calculator</h1>
+    <div class="calculator-container">
+        <div class="calculator">
+            <input type="text" id="number-input" disabled>
+            <input type="text" id="result" placeholder="Ans" disabled>
+            <div class="buttons">
+                <div class="row">
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">7</div>
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">8</div>
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">9</div>
+                    <div class="col cal-buttons" id="plus" onclick="handleClickButton(this)">+</div>
+                </div>
+                <div class="row">
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">4</div>
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">5</div>
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">6</div>
+                    <div class="col cal-buttons" id="minus" onclick="handleClickButton(this)">-</div>
+                </div>
+                <div class="row">
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">1</div>
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">2</div>
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">3</div>
+                    <div class="col  cal-buttons" id="multiply" onclick="handleClickButton(this)">*</div>
+                </div>
+                <div class="row">
+                    <div class="col cal-buttons" onclick="handleClickButton(this)">0</div>
+                    <div class="col cal-buttons" id="clear" onclick="reset()">C</div>
+                    <div class="col cal-buttons" id="equal" onclick="result()">=</div>
+                    <div class="col cal-buttons" id="divide" onclick="handleClickButton(this)">/</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>
