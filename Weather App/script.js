@@ -1,48 +1,55 @@
-const cityWeatherData = document.getElementById('cityWeatherData');
-const currentLocationWeatherData = document.getElementById('currentLocationWeatherData');
-const weatherData = document.getElementById('weatherData');
+const apiKey = "b3109a80a26a89cbaeb6c991bb5f1d5a";
+// let apiCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
+// let apiLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
-async function getWeatherDataByCityName(cityName){
-    const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=9ae5808a62aa418eb1920809251608&q=${cityName}&aqi=yes`)
-    return promise.json();
+let weatherIcon = document.querySelector('.weather-icon');
+let city = document.querySelector('.city');
+let temperature = document.querySelector('.temperature');
+let humidity = document.querySelector('.humidity');
+let wind = document.querySelector('.wind');
+const locationButton = document.getElementById("location-button");
+const searchButton = document.getElementById("search-button");
+
+async function cityWeather(cityName){
+    let data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`);
+    let weatherData = await data.json();
+    return weatherData;
 }
 
-async function getWeatherDataByCurrentLocation(lat,long){
-    const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=9ae5808a62aa418eb1920809251608&q=${lat},${long}&aqi=yes`)
-    return promise.json();
+async function locationWeather(lat,lon){
+    let data = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+    let weatherData = await data.json();
+    return weatherData;
 }
 
-function displayWeatherData(data) {
-    weatherData.innerHTML = '';
-    const h3 = document.createElement('h3');
-    const p = document.createElement('p');
-    h3.innerText = `City: ${data.location.name}`;
-    p.innerText = `Temperature: ${data.current.temp_c}°C, Condition: ${data.current.condition.text}, Humidity: ${data.current.humidity}%`;
-    weatherData.appendChild(h3);
-    weatherData.appendChild(p);
+function displayWeatherData(weatherData){
+    let icon = weatherData.weather[0].main.toLowerCase();
+    weatherIcon.src = `images/${icon}.png`;
+    city.innerText = weatherData.name;
+    let temp_c = Math.round(weatherData.main.temp - 273.15);
+    temperature.innerText = temp_c + "°C";
+    humidity.innerText = weatherData.main.humidity + "%";
+    wind.innerText = weatherData.wind.speed + "Km/h";
 }
 
-cityWeatherData.addEventListener('click', async () => {
-    const cityName = document.getElementById('cityName').value;
-    if(cityName != ''){
-        const data = await getWeatherDataByCityName(cityName);
-        displayWeatherData(data);
-    } else {
-        alert('Please enter a city name');
-    }
+async function gotLocation(position){
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let weatherData = await locationWeather(lat,lon);
+    displayWeatherData(weatherData);
+}
+
+async function failedToGet(){
+    console.log("Unable to get location")
+}
+
+locationButton.addEventListener('click', async () => {
+    navigator.geolocation.getCurrentPosition(gotLocation, failedToGet);
 })
 
-async function gotLocation(position) {
-    const lat = position.coords.latitude;
-    const long = position.coords.longitude;
-    const data = await getWeatherDataByCurrentLocation(lat, long);
-    displayWeatherData(data);
-}
-
-function failedToGet() {
-    alert('Failed to get your location');   
-}
-
-currentLocationWeatherData.addEventListener('click', async () => {
-    navigator.geolocation.getCurrentPosition(gotLocation, failedToGet)
+searchButton.addEventListener('click',async () => {
+    let cityName = document.getElementById("city-name");
+    let weatherData = await cityWeather(cityName.value);
+    cityName.value = "";
+    displayWeatherData(weatherData);
 })
