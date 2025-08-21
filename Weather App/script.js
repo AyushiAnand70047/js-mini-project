@@ -7,6 +7,7 @@ let city = document.querySelector('.city');
 let temperature = document.querySelector('.temperature');
 let humidity = document.querySelector('.humidity');
 let wind = document.querySelector('.wind');
+let weather = document.querySelector('.weather');
 const locationButton = document.getElementById("location-button");
 const searchButton = document.getElementById("search-button");
 
@@ -23,6 +24,7 @@ async function locationWeather(lat,lon){
 }
 
 function displayWeatherData(weatherData){
+    weather.style.display = "block";
     let icon = weatherData.weather[0].main.toLowerCase();
     weatherIcon.src = `images/${icon}.png`;
     city.innerText = weatherData.name;
