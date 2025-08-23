@@ -2,8 +2,12 @@ const notesContainer = document.querySelector('.notes-container');
 const createBtn = document.querySelector('.create-btn');
 
 function showNotes(){
-    notesContainer.innerHTML = (localStorage.getItem("notes")).replace(/<div>(.*?)<\/div>/g, "$1<br>");
+    let savedNotes = localStorage.getItem("notes");
+    if(savedNotes){   // only run replace if not null
+        notesContainer.innerHTML = savedNotes.replace(/<div>(.*?)<\/div>/g, "$1<br>");
+    }
 }
+
 showNotes();
 
 function updateStorage(){
