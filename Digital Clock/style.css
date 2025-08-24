@@ -1,0 +1,159 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Back Button Styling (New) */
+        .back-button-container {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .back-button {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 2rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            background-color: #e0e0e0;
+            color: #121212;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-button::before {
+            content: "←";
+            font-size: 1.25em;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00bcd4;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Clock Section */
+        #clock {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 5em;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        #clock:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Stopwatch Section */
+        .stopwatch-container {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .stopwatch-container h1 {
+            margin-bottom: 30px;
+            color: #ff9800;
+        }
+
+        input[type="number"] {
+            width: 50%;
+            padding: 10px;
+            border: 2px solid #555;
+            background-color: #222;
+            color: #e0e0e0;
+            font-size: 1em;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #00bcd4;
+        }
+
+        button#startTime {
+            padding: 12px 30px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button#startTime:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        button#startTime:active {
+            transform: translateY(0);
+        }
+
+        #timer {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 3em;
+            color: #ffeb3b;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .back-button-container {
+                top: 1rem;
+                left: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            #clock {
+                font-size: 3.5em;
+                padding: 15px 30px;
+            }
+
+            .stopwatch-container {
+                padding: 20px;
+            }
+            
+            #timer {
+                font-size: 2em;
+            }
+        }
