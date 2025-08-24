@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
 </head>
+
 <body>
+    <div class="back-button-container">
+        <a href="../index.html" class="back-button">Back to Projects</a>
+    </div>
+
     <div class="container">
         <div class="row">
             <div onclick="handleClick(this)" id="0" class="col"></div>
@@ -25,6 +31,12 @@
         </div>
     </div>
 
+    <div id="winnerMessage" class="winner-message">
+        <h1 class="result"></h1>
+        <button id="playAgainBtn">Play Again</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

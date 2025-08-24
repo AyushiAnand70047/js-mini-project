@@ -1,14 +1,181 @@
-.row{
-    display: flex;
+/* Custom Properties for easy customization */
+:root {
+    --bg-color: #2c3e50;
+    --card-bg: #34495e;
+    --text-color-light: #ecf0f1;
+    --text-color-dark: #2c3e50;
+    --x-color: #e74c3c;
+    --o-color: #3498db;
+    --border-color: #7f8c8d;
+    --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
-.col{
-    width: 65px;
-    height: 65px;
-    border: 2px solid black;
-    font-size: 35px;
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Back Button Styling */
+.back-button-container {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10;
+}
+
+.back-button {
+    text-decoration: none;
+    color: var(--text-color-light);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--text-color-light);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button:hover {
+    background-color: var(--text-color-light);
+    color: var(--bg-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.back-button::before {
+    content: "←";
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+/* Game Board and Title */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.game-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: clamp(250px, 80vw, 450px);
+    height: clamp(250px, 80vw, 450px);
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    border: 3px solid var(--border-color);
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.col {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: clamp(3rem, 15vw, 6rem);
+    font-weight: 700;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+/* Grid Borders */
+.col:not(:nth-child(3n)) {
+    border-right: 3px solid var(--border-color);
+}
+
+.row:not(:last-child) .col {
+    border-bottom: 3px solid var(--border-color);
+}
+
+/* Cell Hover Effect */
+.col:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Player Colors */
+.col.x {
+    color: var(--x-color);
+}
+
+.col.o {
+    color: var(--o-color);
+}
+
+/* Container for the winner message and button */
+#winnerMessage {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    
+    background: linear-gradient(135deg,#7f8891,#13273b);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Class to show the message */
+#winnerMessage.show {
+    display: block;
+}
+
+/* Heading for the result */
+.result {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+/* Play Again Button */
+#playAgainBtn {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#playAgainBtn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .back-button-container {
+        top: 1rem;
+        left: 1rem;
+    }
+    .game-title {
+        margin-top: 3rem;
+    }
 }
