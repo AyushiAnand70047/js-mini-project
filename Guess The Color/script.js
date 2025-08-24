@@ -1,6 +1,7 @@
 const colorCode = document.getElementById('color-code');
 const options = document.getElementById('options-container');
 let scoreContainer = document.getElementById('score')
+let message = document.getElementById('message');
 let rgb = null;
 let score = 0;
 
@@ -23,11 +24,11 @@ function incrementScore() {
 
 function validateResult(color){
     if(color == rgb){
-        alert("correct guess")
+        message.innerText = "Correct Guess";
         incrementScore();
     } else {
         score = 0;
-        alert("Incorrect Answer! Try Again")
+        message.innerText = "Incorrect Answer! Try Again";
     }
     window.localStorage.setItem("score",score);
     startGame();

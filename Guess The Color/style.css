@@ -1,0 +1,142 @@
+:root {
+  --bg-color: #1a1a2e;
+  --card-bg: #1f4068;
+  --text-color-light: #eef2f6;
+  --text-color-accent: #ffeb3b;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem;
+  text-align: center;
+}
+
+/* Back Button Styling */
+.back-button-container {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.back-button {
+  text-decoration: none;
+  color: var(--text-color-light);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--text-color-light);
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button:hover {
+  background-color: var(--text-color-light);
+  color: var(--bg-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.back-button::before {
+  content: "←";
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+/* Game Card & Title */
+.game-card {
+  background-color: var(--card-bg);
+  padding: 0rem 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 15px 30px var(--shadow-color);
+  max-width: 500px;
+  width: 90%;
+  margin-top: 4rem; /* To account for back button */
+}
+
+.game-title {
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Color Display & Score */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#color-code {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color-accent);
+  text-transform: uppercase;
+}
+
+.score-info {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Color Options Grid */
+#options-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+#options-container > div {
+  height: clamp(80px, 15vw, 150px);
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#options-container > div:hover {
+  transform: scale(1.05);
+  border-color: var(--text-color-light);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Message for User Feedback */
+#message {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .back-button-container {
+    top: 1rem;
+    left: 1rem;
+  }
+  .game-card {
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+  }
+  .game-title {
+    font-size: 1.5rem;
+  }
+  .info-section {
+    margin-bottom: 1.5rem;
+  }
+  #options-container {
+    gap: 0.75rem;
+  }
+}
