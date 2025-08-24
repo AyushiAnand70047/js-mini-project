@@ -1,188 +1,174 @@
 /* Custom Properties for easy customization */
 :root {
-    --bg-color: #2c3e50;
-    --calc-bg: #1a1a1a;
-    --screen-bg: #2d2d2d;
-    --text-color: #f0f0f0;
-    --number-btn-bg: #555;
-    --operator-btn-bg: #ff9f1c;
-    --special-btn-bg: #3c93d9;
-    --hover-color: #6a6a6a;
-    --shadow-color: rgba(0, 0, 0, 0.5);
-    --border-radius-lg: 1.5rem;
-    --border-radius-full: 50%;
+  --bg-color: #2c3e50;
+  --calc-bg: #1a1a1a;
+  --screen-bg: #2d2d2d;
+  --text-color: #f0f0f0;
+  --number-btn-bg: #555;
+  --operator-btn-bg: #ff9f1c;
+  --special-btn-bg: #3c93d9;
+  --hover-color: #6a6a6a;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-radius-lg: 1.5rem;
+  --border-radius-full: 50%;
 }
 
 /* Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Back Button Styling */
 .back-button-container {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    z-index: 10;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
 }
 
 .back-button {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--text-color);
-    border-radius: 2rem;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--text-color);
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .back-button:hover {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    box-shadow: 0 4px 12px var(--shadow-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .back-button::before {
-    content: "←";
-    font-size: 1.25em;
-    font-weight: bold;
+  content: "←";
+  font-size: 1.25em;
+  font-weight: bold;
 }
 
 /* Calculator Container */
 .calculator-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 /* --- KEY CHANGES START HERE --- */
 .calculator {
-    width: 90%; /* Take up 90% of the screen width */
-    max-width: 400px; /* But don't get wider than 400px */
-    background-color: var(--calc-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 1.5rem;
-    box-shadow: 0 15px 30px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  width: 90%; /* Take up 90% of the screen width */
+  max-width: 400px; /* But don't get wider than 400px */
+  background-color: var(--calc-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 15px 30px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 /* --- KEY CHANGES END HERE --- */
 
-#number-input, #result {
-    width: 100%;
-    height: 4.5rem; /* Using rem for better scaling */
-    background-color: var(--screen-bg);
-    color: var(--text-color);
-    border: none;
-    padding: 0.5rem 1rem;
-    text-align: right;
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    border-radius: 0.5rem;
+#number-input,
+#result {
+  width: 100%;
+  height: 4.5rem; /* Using rem for better scaling */
+  background-color: var(--screen-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  text-align: right;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 0.5rem;
 }
 
 #result {
-    height: 3rem;
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    color: #888;
-    margin-top: 0.5rem;
+  height: 3rem;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  color: #888;
+  margin-top: 0.5rem;
 }
 
 .buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
 }
 
 .row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
 }
 
 .col {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cal-buttons {
-    flex: 1;
-    height: 100%;
-    text-align: center;
-    cursor: pointer;
-    background-color: var(--number-btn-bg);
-    color: var(--text-color);
-    font-size: 1.5rem;
-    font-weight: 500;
-    border-radius: var(--border-radius-full);
-    aspect-ratio: 1 / 1; /* Ensures buttons are perfectly square */
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  flex: 1;
+  height: 100%;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--number-btn-bg);
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+  border-radius: var(--border-radius-full);
+  aspect-ratio: 1 / 1; /* Ensures buttons are perfectly square */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cal-buttons:hover {
-    background-color: var(--hover-color);
-    transform: scale(1.05);
+  background-color: var(--hover-color);
+  transform: scale(1.05);
 }
 
-#plus, #minus, #multiply, #divide {
-    background-color: var(--operator-btn-bg);
+#plus,
+#minus,
+#multiply,
+#divide {
+  background-color: var(--operator-btn-bg);
 }
 
-#plus:hover, #minus:hover, #multiply:hover, #divide:hover {
-    background-color: #ffb44a;
+#plus:hover,
+#minus:hover,
+#multiply:hover,
+#divide:hover {
+  background-color: #ffb44a;
 }
 
-#equal, #clear {
-    background-color: var(--special-btn-bg);
+#equal,
+#clear {
+  background-color: var(--special-btn-bg);
 }
 
-#equal:hover, #clear:hover {
-    background-color: #519ad6;
-}
-
-/* Responsive adjustments */
-@media only screen and (min-width: 1024px) {
-    .calculator {
-        height: auto;
-    }
-}
-
-@media (max-width: 600px) {
-    .calculator {
-        padding: 1rem;
-    }
-    .back-button-container {
-        top: 1rem;
-        left: 1rem;
-    }
-    .row {
-        gap: 0.75rem;
-    }
-    .cal-buttons {
-        font-size: 1.25rem;
-    }
+#equal:hover,
+#clear:hover {
+  background-color: #519ad6;
 }
