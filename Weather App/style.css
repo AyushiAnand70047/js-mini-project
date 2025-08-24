@@ -1,3 +1,26 @@
+:root {
+  /* Color Palette */
+  --primary-bg: #222;
+  --card-gradient-start: #00feba;
+  --card-gradient-end: #5b548a;
+  --text-color: #fff;
+  --input-bg: #ebfffc;
+  --input-text: #555;
+  --button-hover-bg: rgba(255, 255, 255, 0.2);
+
+  /* Spacing and Sizing */
+  --card-padding: 2.5rem 2rem;
+  --border-radius-lg: 1.25rem;
+  --border-radius-full: 50%;
+  --icon-size-lg: 10.625rem; /* 170px */
+  --icon-size-md: 2.8125rem; /* 45px */
+  --icon-size-sm: 2.5rem; /* 40px */
+  --spacing-sm: 0.625rem; /* 10px */
+  --spacing-md: 1.25rem; /* 20px */
+  --spacing-lg: 3.125rem; /* 50px */
+}
+
+/* Global Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -5,85 +28,141 @@
 }
 
 body {
-  background-color: #222;
-}
-
-.card {
-  width: 90%;
-  max-width: 420px;
-  background: linear-gradient(135deg, #00feba, #5b548a);
-  color: #fff;
-  margin: 50px auto 0;
-  border-radius: 20px;
-  padding: 40px 35px;
-  text-align: center;
-}
-
-.search {
-  width: 100%;
+  background-color: var(--primary-bg);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 
-.search .location-input {
+/* Back Button Styling */
+.back-button-container {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+.back-button {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--text-color);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button:hover {
+    background-color: var(--text-color);
+    color: var(--primary-bg);
+}
+
+.back-button::before {
+    content: "←";
+    font-size: 1.2rem;
+}
+
+/* Main Card */
+.card {
+  width: 90%;
+  max-width: 420px;
+  background: linear-gradient(135deg, var(--card-gradient-start), var(--card-gradient-end));
+  color: var(--text-color);
+  margin-top: 15vh;
+  border-radius: var(--border-radius-lg);
+  padding: var(--card-padding);
+  text-align: center;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar */
+.search {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search .location-input {
+  flex-grow: 1;
   position: relative;
-  flex: 1;
+  display: flex;
 }
 
 .search .location-input input {
-  border: 0;
-  outline: 0;
-  background: #ebfffc;
-  color: #555;
-  padding: 10px 25px;
-  height: 60px;
-  border-radius: 30px;
-  font-size: 18px;
+  border: none;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--input-text);
+  padding: 0.625rem 1.5rem;
+  height: 3.75rem;
+  border-radius: 1.875rem;
+  font-size: 1.125rem;
+  flex-grow: 1;
+  padding-right: 2rem;
+}
+
+.search button {
+  border: none;
+  outline: none;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: var(--border-radius-full);
+  background: var(--input-bg);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.search button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.search button img {
+  width: 1.875rem;
 }
 
 .search .location-input button {
   position: absolute;
-  right: 11px;
+  right: 0.6875rem;
+  background: transparent;
+}
+.search .location-input button:hover {
+    background: transparent;
 }
 
-.search button {
-  border: 0;
-  outline: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  cursor: pointer;
-  margin-right: 6px;
-}
 
-.search button img {
-  width: 40px;
-}
-
+/* Weather Display */
 .weather-icon {
-  width: 170px;
-  margin-top: 20px;
+  width: var(--icon-size-lg);
+  margin-top: 1.25rem;
 }
 
 .weather h1 {
-  font-size: 80px;
+  font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 .weather h2 {
-  font-size: 45px;
+  font-size: clamp(2rem, 6vw, 2.8125rem);
   font-weight: 400;
-  margin-top: -10px;
+  margin-top: -0.625rem;
 }
 
+/* Details Section */
 .details {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  margin-top: 50px;
+  flex-wrap: wrap; /* Allows items to wrap on new line */
+  padding: 0 1.25rem;
+  margin-top: 3.125rem;
+  gap: 1.5rem; /* Adds space between columns */
 }
 
 .col {
@@ -92,35 +171,75 @@ body {
 }
 
 .col img {
-  width: 45px;
-  margin-right: 10px;
+  width: var(--icon-size-md);
+  margin-right: var(--spacing-sm);
 }
 
 .humidity,
 .wind {
-  font-size: 25px;
-  margin-top: -4px;
+  font-size: 1.5625rem;
+  margin-top: -0.25rem;
 }
 
 .weather {
   display: none;
 }
 
+/* Media Queries for Mobile Responsiveness */
 @media (max-width: 600px) {
+  .back-button-container {
+      top: 1rem;
+      left: 1rem;
+  }
+  
   .card {
+    padding: 1.5rem;
+  }
+
+  .search {
+    flex-direction: column; /* Stacks search elements vertically */
+    gap: 1rem;
+  }
+  
+  .search .location-input {
     width: 100%;
   }
 
   .search .location-input input {
-    padding: 5px 10px;
+    height: 3rem;
+    font-size: 1rem;
   }
 
-  .search .location-input button {
-    position: absolute;
-    right: 15px;
+  /* The search button is now separate from the input and centered below it */
+  #search-button {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: var(--input-bg);
   }
 
-  .search button {
-    margin-right: 20px;
+  .weather-icon {
+    width: 8rem;
+    margin-top: 1rem;
+  }
+
+  .weather h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .weather h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .details {
+    flex-direction: column; /* Stacks the humidity and wind details vertically */
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .col {
+    width: 100%; /* Makes each detail column take full width */
+    justify-content: center;
   }
 }
