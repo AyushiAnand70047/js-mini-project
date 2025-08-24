@@ -1,46 +1,81 @@
-*{
-    padding: 0;
-    margin: 0;
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #ecf0f1;
+  --background-start: #f0f4f8;
+  --background-end: #e7e9ec;
+  --card-background: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-#header{
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(31, 32, 32);
-    color: white;
-    font-size: 25px;
-    letter-spacing: 2px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.container{
-    margin: 3% 10%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 20px; 
-    padding: 10px;
+body {
+  background: linear-gradient(135deg, var(--background-start), var(--background-end));
+  min-height: 100vh;
+  color: #333;
+  line-height: 1.2;
+}
+
+#header {
+  text-align: center;
+  padding: 2vh 0;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 90%;
+  margin: 3vh auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .project {
-    padding: 20px;
-    margin: 25px;
-    font-size: 20px;
-    text-align: center;
-    background-color: rgb(235, 234, 234);
-    border-radius: 15px;
-    cursor: pointer;
+  padding: 2rem;
+  background-color: var(--card-background);
+  box-shadow: 0 10px 20px var(--shadow-color);
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-img{
-    height: 100px;
-    display: block;
-    margin: 7px auto;
+.project:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-a{
-    color: black;
-    text-decoration: none;
+img {
+  height: clamp(60px, 15vw, 120px);
+  max-width: 100%;
+  object-fit: contain;
+  margin: 1rem auto;
+  display: block;
 }
 
-p{
-    font-size: 25px;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.project p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  margin-top: 1rem;
 }

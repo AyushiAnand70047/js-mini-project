@@ -31,7 +31,7 @@ function calculateAge() {
             monthDiff = 11;
             yearDiff--;
         }
-        dateDiff = getDaysInMonth(todayDate, todayYear) + todayDate - birthDate;
+        dateDiff = getDaysInMonth(todayMonth, todayYear) + todayDate - birthDate;
     }
     
     display.innerHTML = `You are <span>${yearDiff}</span> years, <span>${monthDiff}</span> months and <span>${dateDiff}</span> days old.`;
