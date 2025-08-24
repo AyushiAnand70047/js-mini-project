@@ -4,10 +4,39 @@
     box-sizing: border-box;
 }
 
+body{
+    background: linear-gradient(135deg, #cf9aff, #95c0ff);
+}
+
+.back-button-container {
+  margin: 20px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ad59db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #a025cc;
+}
+
+.back-button::before {
+  content: "←";
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
 .container{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #cf9aff, #95c0ff);
     color: #fff;
     padding-top: 4%;
     padding-left: 10%;

@@ -9,6 +9,32 @@ body{
     color: #fff;
 }
 
+.back-button-container {
+  margin: 20px;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #2980b9;
+}
+
+.back-button::before {
+  content: "←";
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
 .container{
     margin: 5%;
     width: 100%;
