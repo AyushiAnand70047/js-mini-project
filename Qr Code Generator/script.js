@@ -1,4 +1,3 @@
-let imgBox = document.getElementById('img-box');
 let qrImage = document.getElementById('qr-image');
 
 function generateQR(){
