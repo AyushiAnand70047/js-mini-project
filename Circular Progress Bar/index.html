@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Circular Progress Bar</title>
 </head>
 <body>
-    <h1>Circular Progress Bar</h1>
+    <div class="skill">
+        <div class="outer">
+            <div class="inner">
+                <div id="number"></div>
+            </div>
+        </div>
+
+        <svg xmlns="http://w3.org/2000/svg" version="1.1" width="200px" height="200px">
+            <defs>
+                <linearGradient id="GradientColor">
+                    <stop offset="0%" stop-color="#e91e63"/>
+                    <stop offset="100%" stop-color="#673ab7"/>
+                </linearGradient>
+            </defs>
+            <circle cx="90" cy="90" r="78" stroke-linecap="round"></circle>
+        </svg>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
